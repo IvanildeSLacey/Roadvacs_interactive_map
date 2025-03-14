@@ -58,7 +58,7 @@
             </label>
             <ul class="menu">
                 <li class="list"><a href="index.html">MAP</a></li>
-                <li class="list"><a href="customerlist.html"  class="actual">CUSTOMER LIST</a></li>
+                <li class="list"><a href="customerlist.html" class="actual">CUSTOMER LIST</a></li>
                 <li class="list"><a href="us.html">CONTACT</a></li>
             </ul>
         </section>
@@ -129,13 +129,9 @@
         </div>
     </footer>
 
-    <!-- Leaflet JS -->
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script src="assets/js/mapInit.js"></script>
-    <script src="assets/js/markers.js"></script>
     <script>
         const trucks = [
-        { customer: "Meath Jetting Services", make: "Muller", model: "Canalmaster F150 E", regPlate: "04-MH-15490", buildNumber: "10401600", deliveryDate: "to be updated" },
+            { customer: "Meath Jetting Services", make: "Muller", model: "Canalmaster F150 E", regPlate: "04-MH-15490", buildNumber: "10401600", deliveryDate: "to be updated" },
             { customer: "Enva", make: "Muller", model: "Canalmaster F180 rec type I", regPlate: "to be updated", buildNumber: "10040500", deliveryDate: "to be updated" },
             { customer: "Clearwater", make: "Muller", model: "Canalmaster F200 rec. type II", regPlate: "SF15CJU", buildNumber: "11443500", deliveryDate: "to be updated" },
             { customer: "Clearwater", make: "Muller", model: "Canalmaster F200 rec. type II", regPlate: "SF15CJU", buildNumber: "11443500", deliveryDate: "to be updated" },
@@ -290,9 +286,9 @@
         trucks.sort((a, b) => a.customer.localeCompare(b.customer));
         renderTable();
 
-        // Function to render the table
         function renderTable() {
             tableBody.innerHTML = ""; // Clear the table before rendering
+            console.log("Rendering table with trucks:", trucks); // Debugging
             trucks.forEach(truck => {
                 const row = document.createElement("tr");
                 row.innerHTML = `
@@ -307,22 +303,21 @@
             });
         }
 
-        // Function to sort the table based on a column
         function sortTable(column, order = "asc") {
             trucks.sort((a, b) => {
                 if (column === "deliveryDate") {
-                    return order === "asc"
-                        ? new Date(a[column]) - new Date(b[column])
-                        : new Date(b[column]) - new Date(a[column]);
+                    const dateA = new Date(a[column] || "2999-12-31"); // Default future for "to be updated"
+                    const dateB = new Date(b[column] || "2999-12-31");
+                    return order === "asc" ? dateA - dateB : dateB - dateA;
                 }
                 return order === "asc"
-                    ? a[column].localeCompare(b[column])
-                    : b[column].localeCompare(a[column]);
+                    ? (a[column] || "").localeCompare(b[column] || "")
+                    : (b[column] || "").localeCompare(a[column] || "");
             });
-            renderTable(); // Re-render the table after sorting
+            renderTable();
         }
 
-        // Add event listeners for sorting
+        // Event listeners for sorting buttons
         document.getElementById("sortCustomerAZ").addEventListener("click", () => sortTable("customer", "asc"));
         document.getElementById("sortCustomerZA").addEventListener("click", () => sortTable("customer", "desc"));
         document.getElementById("sortMakeAZ").addEventListener("click", () => sortTable("make", "asc"));
