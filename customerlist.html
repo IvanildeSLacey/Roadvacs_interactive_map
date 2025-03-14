@@ -77,16 +77,19 @@
         <label for="yearFilter">Filter by Year:</label>
         <input type="text" id="yearFilter" oninput="filterTable()" placeholder="Enter year">
         
-        <!-- Sorting buttons -->
+        <!-- Sorting dropdown -->
         <div>
-            <button id="sortCustomerAZ">Sort Customer (A-Z)</button>
-            <button id="sortCustomerZA">Sort Customer (Z-A)</button>
-            <button id="sortMakeAZ">Sort Make (A-Z)</button>
-            <button id="sortMakeZA">Sort Make (Z-A)</button>
-            <button id="sortModelAZ">Sort Model (A-Z)</button>
-            <button id="sortModelZA">Sort Model (Z-A)</button>
-            <button id="sortDateOldest">Sort Delivery Date (Oldest to Newest)</button>
-            <button id="sortDateNewest">Sort Delivery Date (Newest to Oldest)</button>
+            <label for="sortOptions">Sort By:</label>
+            <select id="sortOptions" onchange="handleSort()">
+                <option value="customer-asc">Customer (A-Z)</option>
+                <option value="customer-desc">Customer (Z-A)</option>
+                <option value="make-asc">Make (A-Z)</option>
+                <option value="make-desc">Make (Z-A)</option>
+                <option value="model-asc">Model (A-Z)</option>
+                <option value="model-desc">Model (Z-A)</option>
+                <option value="deliveryDate-asc">Delivery Date (Oldest to Newest)</option>
+                <option value="deliveryDate-desc">Delivery Date (Newest to Oldest)</option>
+            </select>
         </div>
 
         <!-- Truck table -->
