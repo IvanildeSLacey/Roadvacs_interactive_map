@@ -108,6 +108,17 @@
     <script src="assets/js/mapInit.js"></script>
     <script src="assets/js/markers.js"></script>
     <script>
+        <div>
+    <button id="sortCustomerAZ">Sort Customer (A-Z)</button>
+    <button id="sortCustomerZA">Sort Customer (Z-A)</button>
+    <button id="sortMakeAZ">Sort Make (A-Z)</button>
+    <button id="sortMakeZA">Sort Make (Z-A)</button>
+    <button id="sortModelAZ">Sort Model (A-Z)</button>
+    <button id="sortModelZA">Sort Model (Z-A)</button>
+    <button id="sortDateOldest">Sort Delivery Date (Oldest to Newest)</button>
+    <button id="sortDateNewest">Sort Delivery Date (Newest to Oldest)</button>
+</div>
+
         const trucks = [
             { customer: "Meath Jetting Services", make: "Muller", model: "Canalmaster F150 E", regPlate: "04-MH-15490", buildNumber: "10401600", deliveryDate: "to be updated" },
             { customer: "Enva", make: "Muller", model: "Canalmaster F180 rec type I", regPlate: "to be updated", buildNumber: "10040500", deliveryDate: "to be updated" },
@@ -149,10 +160,10 @@
             { customer: "JWJS", make: "Muller", model: "Canalmaster F110 E + tunnel washer", regPlate: "FJ18 OHR", buildNumber: "11742800", deliveryDate: "to be updated" },
             { customer: "AD Andidrain", make: "Muller", model: "Canalmaster F60 E WA", regPlate: "PX68 DND", buildNumber: "11743400", deliveryDate: "to be updated" },
             { customer: "WB Drainage Ltd", make: "Muller", model: "Canalmaster F190 K WA Pro", regPlate: "FJ18 OJY", buildNumber: "11743600", deliveryDate: "to be updated" },
-            {customer: "AD Andidrain", make: "Muller", model: "Canalmaster CM F200 K", regPlate: "PV19 KTD", buildNumber: "11743900", deliveryDate: "to be updated" },
-            {customer: "AD Andidrain", make: "Muller", model: "Canalmaster CM F190 K WA Pro", regPlate: "PX19 LCM", buildNumber: "11744000", deliveryDate: "to be updated" },
-            {customer: "to be updated", make: "Muller", model: "Canalmaster CM F130 E WA", regPlate: "KU70XWL", buildNumber: "11741900", deliveryDate: "to be updated" },
-            {customer: "Cappagh browne", make: "Muller", model: "Canalmaster F60 rec. type I", regPlate: "FJ69 REU", buildNumber: "11840900", deliveryDate: "to be updated" },
+            { customer: "AD Andidrain", make: "Muller", model: "Canalmaster CM F200 K", regPlate: "PV19 KTD", buildNumber: "11743900", deliveryDate: "to be updated" },
+            { customer: "AD Andidrain", make: "Muller", model: "Canalmaster CM F190 K WA Pro", regPlate: "PX19 LCM", buildNumber: "11744000", deliveryDate: "to be updated" },
+            { customer: "to be updated", make: "Muller", model: "Canalmaster CM F130 E WA", regPlate: "KU70XWL", buildNumber: "11741900", deliveryDate: "to be updated" },
+            { customer: "Cappagh browne", make: "Muller", model: "Canalmaster F60 rec. type I", regPlate: "FJ69 REU", buildNumber: "11840900", deliveryDate: "to be updated" },
             { customer: "JWJS", make: "Muller", model: "Canalmaster F150 E", regPlate: "FJ68 XGW", buildNumber: "11841000", deliveryDate: "to be updated" },
             { customer: "JWJS", make: "Muller", model: "Canalmaster F150 E", regPlate: "FJ19 NEF", buildNumber: "11841100", deliveryDate: "to be updated" },
             { customer: "NRC", make: "Muller", model: "Canalmaster F150 E", regPlate: "FJ69 POH", buildNumber: "11841200", deliveryDate: "to be updated" },
@@ -166,15 +177,15 @@
             { customer: "Sweeptech", make: "Muller", model: "Canalmaster CM F160 E", regPlate: "FJ20 PYH", buildNumber: "11845700", deliveryDate: "to be updated" },
             { customer: "Drainforce", make: "Muller", model: "Canalmaster CM F130 E WA1", regPlate: "FJ70 PYS", buildNumber: "11844500", deliveryDate: "to be updated" },
             { customer: "Lanes Group PLC", make: "Muller", model: "Canalmaster CM F130 E WA1", regPlate: "FE69 YSX", buildNumber: "11843500", deliveryDate: "to be updated" },
-            {customer: "Cappagh browne", make: "Muller", model: "Canalmaster F60", regPlate: "WN21 KVU", buildNumber: "11940100", deliveryDate: "to be updated" },
-            {customer: "Cappagh browne", make: "Muller", model: "Canalmaster F60", regPlate: "WN21 KVP", buildNumber: "11940300", deliveryDate: "to be updated" },
-            {customer: "Duffy", make: "Muller", model: "Canalmaster F160", regPlate: "WN21 KVU", buildNumber: "11942800", deliveryDate: "to be updated" },
-            {customer: "WB Drainage Ltd", make: "Muller", model: "Canalmaster F160", regPlate: "FG70 RXX", buildNumber: "11943900", deliveryDate: "to be updated" },
-            {customer: "Clearway", make: "Muller", model: "Canalmaster F160", regPlate: "FG70 RXY", buildNumber: "11944000", deliveryDate: "to be updated" },
-            {customer: "Convertwater", make: "Muller", model: "Frontliner", regPlate: "FJ71 SKZ", buildNumber: "12041100", deliveryDate: "to be updated" },
+            { customer: "Cappagh browne", make: "Muller", model: "Canalmaster F60", regPlate: "WN21 KVU", buildNumber: "11940100", deliveryDate: "to be updated" },
+            { customer: "Cappagh browne", make: "Muller", model: "Canalmaster F60", regPlate: "WN21 KVP", buildNumber: "11940300", deliveryDate: "to be updated" },
+            { customer: "Duffy", make: "Muller", model: "Canalmaster F160", regPlate: "WN21 KVU", buildNumber: "11942800", deliveryDate: "to be updated" },
+            { customer: "WB Drainage Ltd", make: "Muller", model: "Canalmaster F160", regPlate: "FG70 RXX", buildNumber: "11943900", deliveryDate: "to be updated" },
+            { customer: "Clearway", make: "Muller", model: "Canalmaster F160", regPlate: "FG70 RXY", buildNumber: "11944000", deliveryDate: "to be updated" },
+            { customer: "Convertwater", make: "Muller", model: "Frontliner", regPlate: "FJ71 SKZ", buildNumber: "12041100", deliveryDate: "to be updated" },
             { customer: "Lanes Group PLC", make: "Muller", model: "Canalmaster PVT700 F150 E", regPlate: "FJ72 PKN", buildNumber: "12042600", deliveryDate: "to be updated" },
             { customer: "Lanes Group PLC", make: "Muller", model: "Canalmaster CM F160 E rec. type I", regPlate: "FE21 WBZ", buildNumber: "12042700", deliveryDate: "to be updated" },
-            {customer: "Clearway", make: "Muller", model: "Canalmaster CM F160 E rec. type I", regPlate: "FE21 VWV", buildNumber: "12042800", deliveryDate: "to be updated" },
+            { customer: "Clearway", make: "Muller", model: "Canalmaster CM F160 E rec. type I", regPlate: "FE21 VWV", buildNumber: "12042800", deliveryDate: "to be updated" },
             { customer: "Lanes Group PLC", make: "Muller", model: "Canalmaster F160 E", regPlate: "FJ72 SLZ", buildNumber: "12142500", deliveryDate: "to be updated" },
             { customer: "Lanes Group PLC", make: "Muller", model: "Canalmaster F160 E rec. type I", regPlate: "FJ22 RDU", buildNumber: "12140700", deliveryDate: "to be updated" },
             { customer: "JWJS", make: "Muller", model: "Canalmaster F150 E", regPlate: "FJ68 XGW", buildNumber: "11841000", deliveryDate: "to be updated" },
@@ -212,43 +223,101 @@
             { customer: "Merkland Tank", make: "Muller", model: "CF160 E rec. type I", regPlate: "FP73 GFA", buildNumber: "12144700", deliveryDate: "to be updated" },
             { customer: "Intech Environmental", make: "Muller", model: "CF160 E", regPlate: "FP73 EXD", buildNumber: "12142800", deliveryDate: "to be updated" },
             { customer: "Lanes Group PLC", make: "Muller", model: "CF150 E", regPlate: "FP73 EXF", buildNumber: "12143000", deliveryDate: "to be updated" },
-            { customer: "Cargate Engineering", make: "Muller", model: "CF160 E rc. type I", regPlate: "MR73 JET", buildNumber: "12147100", deliveryDate: "to be updated" },               
+            { customer: "Cargate Engineering", make: "Muller", model: "CF160 E rec. type I", regPlate: "MR73 JET", buildNumber: "12147100", deliveryDate: "to be updated" },
+            { customer: "Enviro-Clean", make: "Muller", model: "CF160 E rec. type I", regPlate: "FJ24 SXA", buildNumber: "12147200", deliveryDate: "to be updated" },
+            { customer: "Enviro-Clean", make: "Muller", model: "CF160 E rec. type I", regPlate: "PO24 BZG", buildNumber: "12147300", deliveryDate: "to be updated" },
+            { customer: "Enviro-Clean", make: "Muller", model: "CF160 E rec. type I", regPlate: "FP73 EXH", buildNumber: "12144800", deliveryDate: "to be updated" },
+            { customer: "Enviro-Clean", make: "Muller", model: "CF160 E rec. type I", regPlate: "FP73 GFE", buildNumber: "12144900", deliveryDate: "to be updated" },
+            { customer: "Sapphire Utility solutions", make: "Muller", model: "CF160 E rec. type I", regPlate: "FP73 GBF", buildNumber: "12145000", deliveryDate: "to be updated" },
+            { customer: "Sapphire Utility solutions", make: "Muller", model: "CF160 E rec. type I", regPlate: "FJ24 SWK", buildNumber: "12145100", deliveryDate: "to be updated" },
+            { customer: "Sapphire Utility solutions", make: "Muller", model: "CF160 E rec. type I", regPlate: "FJ24 SWK", buildNumber: "12145100", deliveryDate: "to be updated" },
+            { customer: "Glanville Environmental", make: "Muller", model: "CF160 E rec. type I RRC + 160m hose", regPlate: "FJ24 SRY", buildNumber: "12145200", deliveryDate: "to be updated" },
+            { customer: "Glanville Environmental", make: "Muller", model: "CF160 E rec. type I RRC + 160m hose", regPlate: "FJ24 SNZ", buildNumber: "12145600", deliveryDate: "to be updated" },
+            { customer: "Lanes Group PLC", make: "Muller", model: "CF160 E rec. type I", regPlate: "FP24 KBK", buildNumber: "12145300", deliveryDate: "to be updated" },
+            { customer: "TT Industrial", make: "Muller", model: "CF160 E rec. type I", regPlate: "FG24 ZNB", buildNumber: "12145400", deliveryDate: "to be updated" },
+            { customer: "Lanes Group PLC", make: "Muller", model: "CF160 E rec. type I", regPlate: "FL24 HDY", buildNumber: "12145500", deliveryDate: "to be updated" },
+            { customer: "Claret Civil Engineering Ltd", make: "Muller", model: "CF160 E", regPlate: "PN24 BUP", buildNumber: "12146500", deliveryDate: "to be updated" },
+            { customer: "Lanes Group PLC", make: "Muller", model: "CF160 E", regPlate: "PN24 BWZ", buildNumber: "12146600", deliveryDate: "to be updated" },
+            { customer: "Munster Drain", make: "Muller", model: "CF160 E rec. type I", regPlate: "PN24 BWY", buildNumber: "12145800", deliveryDate: "to be updated" },
+            { customer: "Enviro-Clean", make: "Muller", model: "CF160 E rec. type I", regPlate: "SG74 DLJ", buildNumber: "12145900", deliveryDate: "to be updated" },
+            { customer: "Lanes Group PLC", make: "Muller", model: "CF160 E rec. type I", regPlate: "PO74 ZVF", buildNumber: "12146000", deliveryDate: "to be updated" },
+            { customer: "Cork Drain Cleaning", make: "Muller", model: "CF160 E rec. type I", regPlate: "241-C-11337", buildNumber: "12144100", deliveryDate: "to be updated" },
+            { customer: "McBreen Environmental", make: "Muller", model: "CF130 E", regPlate: "241-CN-1197", buildNumber: "12144200", deliveryDate: "to be updated" },
+            { customer: "Lanes Group PLC", make: "Muller", model: "CF130 E rec. type I", regPlate: "FJ74 RYV", buildNumber: "12144400", deliveryDate: "to be updated" },
+            { customer: "Lanes Group PLC", make: "Muller", model: "CF160 E rec. type I", regPlate: "PO74 ZRK", buildNumber: "12146100", deliveryDate: "to be updated" },
+            { customer: "Lanes Group PLC", make: "Muller", model: "CF160 E", regPlate: "PO74 ZRK", buildNumber: "12147400", deliveryDate: "to be updated" },
+            { customer: "Enviro-Clean", make: "Muller", model: "CF160 E rec. type I", regPlate: "SG74 DKK", buildNumber: "12146200", deliveryDate: "to be updated" },
+            { customer: "Cork Drain Cleaning", make: "Muller", model: "CF130 E rec. type I", regPlate: "FJ74 ROH", buildNumber: "12144300", deliveryDate: "to be updated" },
+            { customer: "Lanes Group PLC", make: "Muller", model: "CF160 E", regPlate: "FJ74 RKE", buildNumber: "12043500", deliveryDate: "to be updated" },
+            { customer: "Lanes Group PLC", make: "Muller", model: "CF145 E", regPlate: "FJ74 RNF", buildNumber: "12146300", deliveryDate: "to be updated" },
+            { customer: "Lanes Group PLC", make: "Muller", model: "CF160 E", regPlate: "to be updated", buildNumber: "12146400", deliveryDate: "to be updated" },
+            { customer: "Lanes Group PLC", make: "Muller", model: "CF160 E", regPlate: "to be updated", buildNumber: "12146700", deliveryDate: "to be updated" },
+            { customer: "Lanes Group PLC", make: "Muller", model: "Canalmaster 50 E rec. type I 4X4 Agromover", regPlate: "to be updated", buildNumber: "12148600", deliveryDate: "to be updated" },
+            { customer: "Clearwater", make: "Muller", model: "CMF170 K rec. type II Frontliner", regPlate: "to be updated", buildNumber: "12242500", deliveryDate: "to be updated" },
+            { customer: "Clearway", make: "Muller", model: "CF160 E type I - RRC, Samson Pump and high doors", regPlate: "to be updated", buildNumber: "12043400", deliveryDate: "to be updated" },
+            { customer: "Enviro-Clean", make: "Muller", model: "CF160 E rec. type I", regPlate: "to be updated", buildNumber: "12145700", deliveryDate: "to be updated" },
+            { customer: "to be updated", make: "Rolba", model: "Rolba Super Combi", regPlate: "AE64 HPA", buildNumber: "15218", deliveryDate: "to be updated" },
+            { customer: "Clearwater", make: "Rolba", model: "Rolba Super Combi", regPlate: "SJ17 SYZ", buildNumber: "15253", deliveryDate: "to be updated" },
+            { customer: "Telcoss", make: "Rolba", model: "Medium Combi", regPlate: "SJ16 NXA", buildNumber: "1803", deliveryDate: "to be updated" },
+            { customer: "IDS Intelligent Drainage Solutions", make: "Rolba", model: "Medium Combi", regPlate: "FN64 PNZ", buildNumber: "1760", deliveryDate: "to be updated" },
+            { customer: "CPJ Environmental Services", make: "Rolba", model: "Medium Combi", regPlate: "to be updated", buildNumber: "1780", deliveryDate: "to be updated" },
+            { customer: "CPJ Environmental Services", make: "Rolba", model: "Medium Combi", regPlate: "CJ16 CPJ", buildNumber: "1801", deliveryDate: "to be updated" },
+            { customer: "CPJ Environmental Services", make: "Rolba", model: "Medium Combi", regPlate: "CJ17 CPJ", buildNumber: "1812", deliveryDate: "to be updated" },
+            { customer: "CPJ Environmental Services", make: "Rolba", model: "Medium Combi", regPlate: "FJ20 PLV", buildNumber: "1842", deliveryDate: "to be updated" },
+            { customer: "PRB Drainage Ltd", make: "Rolba", model: "Medium Combi", regPlate: "AY67 WHW", buildNumber: "1843", deliveryDate: "to be updated" },
+            { customer: "Slicker Recycling", make: "Rolba", model: "Medium Combi", regPlate: "AY18 LZS", buildNumber: "1858", deliveryDate: "to be updated" },
+            { customer: "Slicker Recycling", make: "Rolba", model: "Medium Combi", regPlate: "AY18 LZR", buildNumber: "1859", deliveryDate: "to be updated" },
+
+            
         ];
 
         const tableBody = document.getElementById("truckTable");
 
-        trucks.forEach(truck => {
-            const row = document.createElement("tr");
-            row.innerHTML = `
-                <td>${truck.customer}</td>
-                <td>${truck.make}</td>
-                <td>${truck.model}</td>
-                <td>${truck.regPlate}</td>
-                <td>${truck.buildNumber}</td>
-                <td>${truck.deliveryDate}</td>
-            `;
-            tableBody.appendChild(row);
-        });
+// Initial rendering: sort trucks by customer A-Z
+trucks.sort((a, b) => a.customer.localeCompare(b.customer));
+renderTable();
 
-        function filterTable() {
-            const customerFilter = document.getElementById("customerFilter").value.toLowerCase();
-            const makeFilter = document.getElementById("makeFilter").value.toLowerCase();
-            const yearFilter = document.getElementById("yearFilter").value.toLowerCase();
+// Function to render the table
+function renderTable() {
+    tableBody.innerHTML = ""; // Clear the table before rendering
+    trucks.forEach(truck => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>${truck.customer}</td>
+            <td>${truck.make}</td>
+            <td>${truck.model}</td>
+            <td>${truck.regPlate}</td>
+            <td>${truck.buildNumber}</td>
+            <td>${truck.deliveryDate}</td>
+        `;
+        tableBody.appendChild(row);
+    });
+}
 
-            const rows = document.querySelectorAll("#truckTable tr");
-            rows.forEach(row => {
-                const cells = row.children;
-                const customer = cells[0].textContent.toLowerCase();
-                const make = cells[1].textContent.toLowerCase();
-                const deliveryYear = cells[5].textContent.split("-")[0];
-
-                const matchesCustomer = customer.includes(customerFilter) || customerFilter === "";
-                const matchesMake = make.includes(makeFilter) || makeFilter === "";
-                const matchesYear = deliveryYear.includes(yearFilter) || yearFilter === "";
-
-                row.style.display = matchesCustomer && matchesMake && matchesYear ? "" : "none";
-            });
+// Function to sort the table based on a column
+function sortTable(column, order = "asc") {
+    trucks.sort((a, b) => {
+        if (column === "deliveryDate") {
+            return order === "asc"
+                ? new Date(a[column]) - new Date(b[column])
+                : new Date(b[column]) - new Date(a[column]);
         }
+        return order === "asc"
+            ? a[column].localeCompare(b[column])
+            : b[column].localeCompare(a[column]);
+    });
+    renderTable(); // Re-render the table after sorting
+}
+
+// Add event listeners for sorting
+document.getElementById("sortCustomerAZ").addEventListener("click", () => sortTable("customer", "asc"));
+document.getElementById("sortCustomerZA").addEventListener("click", () => sortTable("customer", "desc"));
+document.getElementById("sortMakeAZ").addEventListener("click", () => sortTable("make", "asc"));
+document.getElementById("sortMakeZA").addEventListener("click", () => sortTable("make", "desc"));
+document.getElementById("sortModelAZ").addEventListener("click", () => sortTable("model", "asc"));
+document.getElementById("sortModelZA").addEventListener("click", () => sortTable("model", "desc"));
+document.getElementById("sortDateOldest").addEventListener("click", () => sortTable("deliveryDate", "asc"));
+document.getElementById("sortDateNewest").addEventListener("click", () => sortTable("deliveryDate", "desc"));
     </script>
 </body>
 </html>
