@@ -48,7 +48,7 @@ function addMarker(lat, lng, popupContent, tooltipContent, icon) {
 var bounds = L.latLngBounds();
 
 // Add markers for our business addresses, blue,  with links and tooltips
-addMarker(52.6730, -8.6189, '<a href="https://example.com/E41PF60" target="_blank">E41PF60</a>', 'Roadvacs IRL Ltd', blueIcon);
+addMarker(52.6191, -7.7196, '<a href="https://example.com/E41PF60" target="_blank">E41PF60</a>', 'Roadvacs IRL Ltd', blueIcon);
 addMarker(53.09156627375013, -1.361926418017554, '<a href="https://example.com/E41PF60" target="_blank">E41PF60</a>', 'Roadvacs', blueIcon);
 // Add markers for our customers addresses, green,  with links and tooltips
 addMarker(51.938095132372545, 0.8156100675818344, '<a href="https://example.com/Greenacres" target="_blank">Greenacres</a>', 'AA Turner Tankers', greenIcon);
