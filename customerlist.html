@@ -291,7 +291,6 @@
 
         function renderTable() {
             tableBody.innerHTML = ""; // Clear the table before rendering
-            console.log("Rendering table with trucks:", trucks); // Debugging
             trucks.forEach(truck => {
                 const row = document.createElement("tr");
                 row.innerHTML = `
@@ -320,15 +319,32 @@
             renderTable();
         }
 
-        // Event listeners for sorting buttons
-        document.getElementById("sortCustomerAZ").addEventListener("click", () => sortTable("customer", "asc"));
-        document.getElementById("sortCustomerZA").addEventListener("click", () => sortTable("customer", "desc"));
-        document.getElementById("sortMakeAZ").addEventListener("click", () => sortTable("make", "asc"));
-        document.getElementById("sortMakeZA").addEventListener("click", () => sortTable("make", "desc"));
-        document.getElementById("sortModelAZ").addEventListener("click", () => sortTable("model", "asc"));
-        document.getElementById("sortModelZA").addEventListener("click", () => sortTable("model", "desc"));
-        document.getElementById("sortDateOldest").addEventListener("click", () => sortTable("deliveryDate", "asc"));
-        document.getElementById("sortDateNewest").addEventListener("click", () => sortTable("deliveryDate", "desc"));
+        function handleSort() {
+            const sortOption = document.getElementById("sortOptions").value;
+            const [column, order] = sortOption.split("-"); // Split into column and order
+            sortTable(column, order); // Call the existing sortTable function
+        }
+
+        // Event listeners for filtering
+        function filterTable() {
+            const customerFilter = document.getElementById("customerFilter").value.toLowerCase();
+            const makeFilter = document.getElementById("makeFilter").value.toLowerCase();
+            const yearFilter = document.getElementById("yearFilter").value;
+
+            const rows = document.querySelectorAll("#truckTable tr");
+            rows.forEach(row => {
+                const cells = row.children;
+                const customer = cells[0].textContent.toLowerCase();
+                const make = cells[1].textContent.toLowerCase();
+                const deliveryYear = cells[5].textContent.split("-")[0];
+
+                const matchesCustomer = customer.includes(customerFilter) || customerFilter === "";
+                const matchesMake = make.includes(makeFilter) || makeFilter === "";
+                const matchesYear = deliveryYear.includes(yearFilter) || yearFilter === "";
+
+                row.style.display = matchesCustomer && matchesMake && matchesYear ? "" : "none";
+            });
+        }
     </script>
 </body>
 </html>
