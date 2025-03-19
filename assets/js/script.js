@@ -109,7 +109,6 @@ addMarker(53.201969106012974, -3.004520820773555, '<a href="#">Trade Effluent Se
 addMarker(53.351905346126195, -2.5327937341551094, '<a href="#">WB Drainage</a>', 'WB Drainage', greenIcon);
 addMarker(52.00279982846905, -2.0562475243113942, '<a href="#">William Gilder</a>', 'William Gilder', greenIcon);
 
-
 // Add markers for our potential customers, red,  with links and tooltips
 addMarker(53.97336261621961, -6.720400815345416, '<a href="#">JC Enviro</a>', 'JC Enviro', redIcon);
 addMarker(53.11714560680234, -6.096205340493168, '<a href="#">Kelly Drain</a>', 'Kelly Drain', redIcon);
@@ -119,6 +118,5 @@ addMarker(53.406458511019565, -6.232812483240424, '<a href="#">Dyno-Rod</a>', 'D
 addMarker(53.02876938165249, -7.31441361351117, '<a href="#">Enva</a>', 'Enva', redIcon);
 addMarker(53.201492362926935, -6.499102215416859, '<a href="#">Bluestream</a>', 'Bluestream', redIcon);
 addMarker(52.45587279421024, -6.682556657910822, '<a href="#">M & T Plant Hire</a>', 'M & T Plant Hire', redIcon);
-
 
 map.fitBounds(bounds);
