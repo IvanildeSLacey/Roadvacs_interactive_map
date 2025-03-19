@@ -58,9 +58,9 @@ const bounds = L.latLngBounds();
 addMarker(52.6191, -7.7196, '<a href="https://example.com/E41PF60" target="_blank">Location</a>', 'Roadvacs IRL Ltd', blueIcon);
 addMarker(53.09156627375013, -1.361926418017554, '<a href="https://example.com/E41PF60" target="_blank">Location</a>', 'Roadvacs', blueIcon);
 // Add markers for our customers addresses, green,  with links and tooltips
-addMarker(51.938095132372545, 0.8156100675818344, ''<a href="#">AA Turner Tankers</a>'', 'AA Turner Tankers', greenIcon);
-addMarker(54.937771352904385, -2.992587402552944, '<a href="https://example.com/Andidrain" target="_blank">Andidrain Ltd</a>', 'AD Andidrain Ltd', greenIcon);
-addMarker(54.11692439470301, -1.5766532418992028, '<a href="https://example.com/StationParade" target="_blank">80 Station Parade</a>', 'Adler & Allan', greenIcon);
+addMarker(51.938095132372545, 0.8156100675818344, '<a href="#">AA Turner Tankers</a>', 'AA Turner Tankers', greenIcon);
+addMarker(54.937771352904385, -2.992587402552944, '<a href="#">AD Andidrain Ltd</a>', 'AD Andidrain Ltd', greenIcon);
+addMarker(54.11692439470301, -1.5766532418992028, '<a href="#">Adler & Allan</a>', 'Adler & Allan', greenIcon);
 addMarker(51.89413682803283, -8.367585175804356, '<a href="https://example.com/IslandCorporatePark" target="_blank">Island Corporate Park</a>', 'Ambipar Group', greenIcon);
 addMarker(50.971710679695455, -0.08897536233268646, '<a href="https://example.com/basementpumps" target="_blank">basement pumps</a>', 'Basement Pumps', greenIcon);
 addMarker(55.60086918326677, -4.537056273673114, '<a href="https://example.com/BillyBowie" target="_blank">Billy Bowie Special Projects Ltd</a>', 'Billy Bowie', greenIcon);
