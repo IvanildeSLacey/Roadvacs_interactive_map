@@ -35,11 +35,20 @@ var blueIcon = L.icon({
     shadowSize: [41, 41]
 });
 
-// Function to add a marker with a custom icon, link, and tooltip
-function addMarker(lat, lng, popupContent, tooltipContent, icon) {
+// Function to add a marker with a custom icon, link, tooltip, and click event
+function addMarker(lat, lng, popupContent, tooltipContent, icon, customerName) {
     var marker = L.marker([lat, lng], { icon: icon }).addTo(map);
     marker.bindPopup(popupContent);
     marker.bindTooltip(tooltipContent, { permanent: false, direction: 'top' });
+
+    // Add a click event to redirect to the customer page with a filter
+    if (customerName) {
+        marker.on('click', function () {
+            // Redirect to customer page with filter
+            window.location.href = `customerlist.html?customer=${encodeURIComponent(customerName)}`;
+        });
+    }
+
     // Extend the bounds to include this marker
     bounds.extend(marker.getLatLng());
 }
@@ -111,74 +120,5 @@ addMarker(53.406458511019565, -6.232812483240424, '<a href="https://example.com/
 addMarker(53.02876938165249, -7.31441361351117, '<a href="https://example.com/E41PF60" target="_blank">Location</a>', 'Enva', redIcon);
 addMarker(53.201492362926935, -6.499102215416859, '<a href="https://example.com/E41PF60" target="_blank">Location</a>', 'Bluestream', redIcon);
 addMarker(52.45587279421024, -6.682556657910822, '<a href="https://example.com/E41PF60" target="_blank">Location</a>', 'M & T Plant Hire', redIcon);
-// Set the map view to the bounds
-map.fitBounds(bounds);
-
-// Initialize the map
-var map = L.map('map').setView([52.6680, -8.6305], 13);
-
-// Add the OpenStreetMap tiles
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; OpenStreetMap contributors'
-}).addTo(map);
-
-// Custom marker icons
-var redIcon = L.icon({
-    iconUrl: 'https://cdn.jsdelivr.net/gh/pointhi/leaflet-color-markers@1.0/img/marker-icon-red.png',
-    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
-    iconSize: [25, 41],
-    iconAnchor: [12, 41],
-    popupAnchor: [1, -34],
-    shadowSize: [41, 41]
-});
-
-var greenIcon = L.icon({
-    iconUrl: 'https://cdn.jsdelivr.net/gh/pointhi/leaflet-color-markers@1.0/img/marker-icon-green.png',
-    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
-    iconSize: [25, 41],
-    iconAnchor: [12, 41],
-    popupAnchor: [1, -34],
-    shadowSize: [41, 41]
-});
-
-var blueIcon = L.icon({
-    iconUrl: 'https://cdn.jsdelivr.net/gh/pointhi/leaflet-color-markers@1.0/img/marker-icon-blue.png',
-    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
-    iconSize: [25, 41],
-    iconAnchor: [12, 41],
-    popupAnchor: [1, -34],
-    shadowSize: [41, 41]
-});
-
-// Function to add a marker with a custom icon, link, tooltip, and click event
-function addMarker(lat, lng, popupContent, tooltipContent, icon, customerName) {
-    var marker = L.marker([lat, lng], { icon: icon }).addTo(map);
-    marker.bindPopup(popupContent);
-    marker.bindTooltip(tooltipContent, { permanent: false, direction: 'top' });
-    
-    // Add click event to redirect to the customer page with filter
-    if (customerName) {
-        marker.on('click', function () {
-            window.location.href = `https://example.com/customer-page?filter=${encodeURIComponent(customerName)}`;
-        });
-    }
-
-    // Extend the bounds to include this marker
-    bounds.extend(marker.getLatLng());
-}
-
-// Create a bounds object to store all the marker coordinates
-var bounds = L.latLngBounds();
-
-// Add markers for our business addresses, blue, with links and tooltips
-addMarker(52.6191, -7.7196, '<a href="https://example.com/E41PF60" target="_blank">E41PF60</a>', 'Roadvacs IRL Ltd', blueIcon, null);
-addMarker(53.09156627375013, -1.361926418017554, '<a href="https://example.com/E41PF60" target="_blank">E41PF60</a>', 'Roadvacs', blueIcon, null);
-
-// Add markers for our customers' addresses, green, with links, tooltips, and filters
-addMarker(51.938095132372545, 0.8156100675818344, '<a href="https://example.com/Greenacres" target="_blank">Greenacres</a>', 'AA Turner Tankers', greenIcon, 'AA Turner Tankers');
-addMarker(54.937771352904385, -2.992587402552944, '<a href="https://example.com/Andidrain" target="_blank">Andidrain Ltd</a>', 'AD Andidrain Ltd', greenIcon, 'AD Andidrain Ltd');
-addMarker(54.11692439470301, -1.5766532418992028, '<a href="https://example.com/StationParade" target="_blank">80 Station Parade</a>', 'Adler & Allan', greenIcon, 'Adler & Allan');
-
 // Set the map view to the bounds
 map.fitBounds(bounds);
