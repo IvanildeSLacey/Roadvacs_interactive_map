@@ -459,12 +459,34 @@ function sortTable(column, order = "asc") {
             const dateB = new Date(b[column] || "2999-12-31");
             return order === "asc" ? dateA - dateB : dateB - dateA;
         }
+        if (column === "buildNumber") {
+            const numA = parseInt(a[column].replace(/\D/g, ""), 10) || 0; // Handle non-numeric build numbers
+            const numB = parseInt(b[column].replace(/\D/g, ""), 10) || 0;
+            return order === "asc" ? numA - numB : numB - numA;
+        }
         return order === "asc"
             ? (a[column] || "").localeCompare(b[column] || "")
             : (b[column] || "").localeCompare(a[column] || "");
     });
     renderTable();
 }
+
+function renderTable() {
+    tableBody.innerHTML = ""; // Clear table
+    trucks.forEach(truck => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>${truck.customer}</td>
+            <td>${truck.make}</td>
+            <td>${truck.model}</td>
+            <td>${truck.regPlate}</td>
+            <td>${truck.buildNumber}</td>
+            <td>${truck.deliveryDate}</td>
+        `;
+        tableBody.appendChild(row);
+    });
+}
+
 
 function handleSort() {
     const sortOption = document.getElementById("sortOptions").value;

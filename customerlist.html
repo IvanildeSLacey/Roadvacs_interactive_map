@@ -107,14 +107,39 @@ Here's your updated `customerlist.html` file with the merged code for filtering 
         <table>
             <thead>
                 <tr>
-                    <th>Customer</th>
-                    <th>Make</th>
-                    <th>Model</th>
-                    <th>Registration Plate</th>
-                    <th>Build Number</th>
-                    <th>Delivery Date</th>
+                    <th>
+                        Customer
+                        <button onclick="sortTable('customer', 'asc')">▲</button>
+                        <button onclick="sortTable('customer', 'desc')">▼</button>
+                    </th>
+                    <th>
+                        Make
+                        <button onclick="sortTable('make', 'asc')">▲</button>
+                        <button onclick="sortTable('make', 'desc')">▼</button>
+                    </th>
+                    <th>
+                        Model
+                        <button onclick="sortTable('model', 'asc')">▲</button>
+                        <button onclick="sortTable('model', 'desc')">▼</button>
+                    </th>
+                    <th>
+                        Registration Plate
+                        <button onclick="sortTable('regPlate', 'asc')">▲</button>
+                        <button onclick="sortTable('regPlate', 'desc')">▼</button>
+                    </th>
+                    <th>
+                        Build Number
+                        <button onclick="sortTable('buildNumber', 'asc')">▲</button>
+                        <button onclick="sortTable('buildNumber', 'desc')">▼</button>
+                    </th>
+                    <th>
+                        Delivery Date
+                        <button onclick="sortTable('deliveryDate', 'asc')">▲</button>
+                        <button onclick="sortTable('deliveryDate', 'desc')">▼</button>
+                    </th>
                 </tr>
             </thead>
+            
             <tbody id="truckTable">
                 <!-- Rows of truck data will go here -->
             </tbody>
