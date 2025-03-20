@@ -10,11 +10,9 @@
 
     <!-- Fontawesome -->
     <script src="https://kit.fontawesome.com/feb4a38862.js" crossorigin="anonymous"></script>
-    <!-- Leaflet CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <!-- CSS path connection -->
+    <!-- CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
-    
+
     <style>
         table {
             width: 100%;
@@ -32,23 +30,35 @@
         input {
             margin: 10px;
         }
+
+        /* Sort controls */
+        .sort-controls {
+            font-size: 12px;
+            margin-left: 5px;
+            cursor: pointer;
+            color: #888;
+            transition: color 0.2s ease;
+        }
+
+        .sort-controls:hover {
+            color: orange;
+        }
     </style>
 </head>
-
 <body>
     <header>
         <section class="top-nav">
             <div>
                 <a href="index.html"><img src="assets/images/roadlogo.png" id="logo" alt="Roadvacs Logo"></a>
             </div>
-            <input id="menu-toggle" type="checkbox"/>
+            <input id="menu-toggle" type="checkbox" />
             <label class='menu-button-container' for="menu-toggle">
                 <div class='menu-button'></div>
             </label>
             <ul class="menu">
-                <li class="list"><a href="index.html">MAP</a></li>
-                <li class="list"><a href="customerlist.html" class="actual">CUSTOMER LIST</a></li>
-                <li class="list"><a href="us.html">CONTACT</a></li>
+                <li><a href="index.html">MAP</a></li>
+                <li><a href="customerlist.html" class="actual">CUSTOMER LIST</a></li>
+                <li><a href="us.html">CONTACT</a></li>
             </ul>
         </section>
     </header>
@@ -59,10 +69,10 @@
         <!-- Filtering inputs -->
         <label for="customerFilter">Filter by Customer:</label>
         <input type="text" id="customerFilter" oninput="filterTable()" placeholder="Enter customer name">
-        
+
         <label for="makeFilter">Filter by Make:</label>
         <input type="text" id="makeFilter" oninput="filterTable()" placeholder="Enter make">
-        
+
         <label for="yearFilter">Filter by Year:</label>
         <input type="text" id="yearFilter" oninput="filterTable()" placeholder="Enter year">
 
@@ -73,73 +83,40 @@
         <table>
             <thead>
                 <tr>
-                    <th>
-                        Customer
+                    <th>Customer
                         <span class="sort-controls" onclick="sortTable('customer', 'asc')">▲</span>
                         <span class="sort-controls" onclick="sortTable('customer', 'desc')">▼</span>
                     </th>
-                    <th>
-                        Make
+                    <th>Make
                         <span class="sort-controls" onclick="sortTable('make', 'asc')">▲</span>
                         <span class="sort-controls" onclick="sortTable('make', 'desc')">▼</span>
                     </th>
-                    <th>
-                        Model
-                        <span class="sort-controls" onclick="sortTable('model', 'asc')">▲</span>
-                        <span class="sort-controls" onclick="sortTable('model', 'desc')">▼</span>
-                    </th>
-                    <th>
-                        Registration Plate
-                        <span class="sort-controls" onclick="sortTable('regPlate', 'asc')">▲</span>
-                        <span class="sort-controls" onclick="sortTable('regPlate', 'desc')">▼</span>
-                    </th>
-                    <th>
-                        Build Number
+                    <th>Model</th>
+                    <th>Registration Plate</th>
+                    <th>Build Number
                         <span class="sort-controls" onclick="sortTable('buildNumber', 'asc')">▲</span>
                         <span class="sort-controls" onclick="sortTable('buildNumber', 'desc')">▼</span>
                     </th>
-                    <th>
-                        Delivery Date
+                    <th>Delivery Date
                         <span class="sort-controls" onclick="sortTable('deliveryDate', 'asc')">▲</span>
                         <span class="sort-controls" onclick="sortTable('deliveryDate', 'desc')">▼</span>
                     </th>
                 </tr>
             </thead>
             <tbody id="truckTable">
-                <!-- Rows of truck data will go here -->
+                <!-- Data rows will be dynamically populated -->
             </tbody>
         </table>
     </main>
-    
+
     <footer>
-        <div id="footer-content">
-            <ul class="social-networks">
-                <li>
-                     <a href="tel:+35350467507" target="_blank" rel="noopener" aria-label="Call us on 050467507"><i class="fa-solid fa-phone"></i></a>
-                </li>
-                <li>
-                     <a href="https://www.facebook.com/roadvacs/" target="_blank" rel="noopener" aria-label="Visit our Facebook page (link opens in a new tab)"><i class="fa-brands fa-facebook"></i></a>
-                </li>
-                <li>
-                     <a href="https://www.instagram.com/roadvacsltd/" target="_blank" rel="noopener" aria-label="Check out our Instagram page (link opens in a new tab)"><i class="fa-brands fa-instagram"></i></a>
-                </li>
-                <li>
-                     <a href="https://www.linkedin.com/company/roadvacsltd/posts/?feedView=all" target="_blank" rel="noopener" aria-label="Contact us on linkedin (opens in a new tab)"><i class="fa-brands fa-linkedin"></i></a>
-                </li>
-                <li>
-                     <a href="https://roadvacs.com/" target="_blank" rel="noopener" aria-label="Check our website (opens in a new tab)"><i class="fa-solid fa-globe"></i></a>
-                </li>
-            </ul>
-            <div id="copywrite">
-                <p>©2025 by Roadvacs Irl Ltd</p>
-            </div>
-        </div>
+        <p>©2025 by Roadvacs Irl Ltd</p>
     </footer>
 
     <script>
         // Truck data for table
-const trucks = [
-{ customer: "Meath Jetting Services", make: "Muller", model: "Canalmaster F150 E", regPlate: "04-MH-15490", buildNumber: "10401600", deliveryDate: "to be updated" },
+        const trucks = [
+            { customer: "Meath Jetting Services", make: "Muller", model: "Canalmaster F150 E", regPlate: "04-MH-15490", buildNumber: "10401600", deliveryDate: "to be updated" },
             { customer: "Enva--", make: "Muller", model: "Canalmaster F180 rec type I", regPlate: "to be updated", buildNumber: "10040500", deliveryDate: "to be updated" },
             { customer: "Clearwater", make: "Muller", model: "Canalmaster F200 rec. type II", regPlate: "SF15CJU", buildNumber: "11443500", deliveryDate: "to be updated" },
             { customer: "Clearwater", make: "Muller", model: "Canalmaster F200 rec. type II", regPlate: "SF15CJU", buildNumber: "11443500", deliveryDate: "to be updated" },
@@ -446,107 +423,66 @@ const trucks = [
             { customer: "to be updated", make: "VJ Engineering", model: "4200 Gallon Tanker", regPlate: "to be updated", buildNumber: "VJE0622-2", deliveryDate: "to be updated" },
             { customer: "to be updated", make: "VJ Engineering", model: "to be updated", regPlate: "to be updated", buildNumber: "VJE0625", deliveryDate: "to be updated" },
             { customer: "Billy Bowie", make: "VJ Engineering", model: "4200 Gallon Tanker", regPlate: "to be updated", buildNumber: "VJE0606", deliveryDate: "to be updated" },
-];
+        ];
 
-const tableBody = document.getElementById("truckTable");
+        const tableBody = document.getElementById("truckTable");
 
-// Render the table
-function renderTable() {
-    tableBody.innerHTML = ""; // Clear table
-    trucks.forEach(truck => {
-        const row = document.createElement("tr");
-        row.innerHTML = `
-            <td>${truck.customer}</td>
-            <td>${truck.make}</td>
-            <td>${truck.model}</td>
-            <td>${truck.regPlate}</td>
-            <td>${truck.buildNumber}</td>
-            <td>${truck.deliveryDate}</td>
-        `;
-        tableBody.appendChild(row);
-    });
-}
-
-// Sort function for table data
-function sortTable(column, order = "asc") {
-    trucks.sort((a, b) => {
-        if (column === "deliveryDate") {
-            const dateA = new Date(a[column] || "2999-12-31");
-            const dateB = new Date(b[column] || "2999-12-31");
-            return order === "asc" ? dateA - dateB : dateB - dateA;
+        // Render the table
+        function renderTable() {
+            tableBody.innerHTML = ""; // Clear table
+            trucks.forEach(truck => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${truck.customer}</td>
+                    <td>${truck.make}</td>
+                    <td>${truck.model}</td>
+                    <td>${truck.regPlate}</td>
+                    <td>${truck.buildNumber}</td>
+                    <td>${truck.deliveryDate}</td>
+                `;
+                tableBody.appendChild(row);
+            });
         }
-        if (column === "buildNumber") {
-            const numA = parseInt(a[column].replace(/\D/g, ""), 10) || 0; // Handle non-numeric build numbers
-            const numB = parseInt(b[column].replace(/\D/g, ""), 10) || 0;
-            return order === "asc" ? numA - numB : numB - numA;
+
+        // Sort function for table
+        function sortTable(column, order = "asc") {
+            trucks.sort((a, b) => {
+                if (column === "buildNumber") {
+                    const numA = parseInt(a[column].replace(/\D/g, ""), 10) || 0;
+                    const numB = parseInt(b[column].replace(/\D/g, ""), 10) || 0;
+                    return order === "asc" ? numA - numB : numB - numA;
+                }
+                return order === "asc"
+                    ? a[column].localeCompare(b[column])
+                    : b[column].localeCompare(a[column]);
+            });
+            renderTable();
         }
-        return order === "asc"
-            ? (a[column] || "").localeCompare(b[column] || "")
-            : (b[column] || "").localeCompare(a[column] || "");
-    });
-    renderTable();
-}
 
-function renderTable() {
-    tableBody.innerHTML = ""; // Clear table
-    trucks.forEach(truck => {
-        const row = document.createElement("tr");
-        row.innerHTML = `
-            <td>${truck.customer}</td>
-            <td>${truck.make}</td>
-            <td>${truck.model}</td>
-            <td>${truck.regPlate}</td>
-            <td>${truck.buildNumber}</td>
-            <td>${truck.deliveryDate}</td>
-        `;
-        tableBody.appendChild(row);
-    });
-}
+        // Filter function for table
+        function filterTable() {
+            const customerFilter = document.getElementById("customerFilter").value.toLowerCase();
+            const makeFilter = document.getElementById("makeFilter").value.toLowerCase();
+            const yearFilter = document.getElementById("yearFilter").value.toLowerCase();
+            const buildFilter = document.getElementById("buildFilter").value.toLowerCase();
 
+            const rows = document.querySelectorAll("#truckTable tr");
+            rows.forEach(row => {
+                const cells = row.children;
+                const customer = cells[0].textContent.toLowerCase();
+                const make = cells[1].textContent.toLowerCase();
+                const build = cells[4].textContent.toLowerCase();
 
-function handleSort() {
-    const sortOption = document.getElementById("sortOptions").value;
-    const [column, order] = sortOption.split("-");
-    sortTable(column, order);
-}
+                const matchesCustomer = customer.includes(customerFilter) || customerFilter === "";
+                const matchesMake = make.includes(makeFilter) || makeFilter === "";
+                const matchesBuild = build.includes(buildFilter) || buildFilter === "";
 
-// Filter function for table
-function filterTable() {
-    const customerFilter = document.getElementById("customerFilter").value.toLowerCase();
-    const makeFilter = document.getElementById("makeFilter").value.toLowerCase();
-    const yearFilter = document.getElementById("yearFilter").value;
+                row.style.display = matchesCustomer && matchesMake && matchesBuild ? "" : "none";
+            });
+        }
 
-    const rows = document.querySelectorAll("#truckTable tr");
-    rows.forEach(row => {
-        const cells = row.children;
-        const customer = cells[0].textContent.toLowerCase();
-        const make = cells[1].textContent.toLowerCase();
-        const deliveryYear = cells[5].textContent.split("-")[0];
-
-        const matchesCustomer = customer.includes(customerFilter) || customerFilter === "";
-        const matchesMake = make.includes(makeFilter) || makeFilter === "";
-        const matchesYear = deliveryYear.includes(yearFilter) || yearFilter === "";
-
-        row.style.display = matchesCustomer && matchesMake && matchesYear ? "" : "none";
-    });
-}
-
-// Automatically filter table when 'customer' query parameter exists
-function getQueryParam(param) {
-    const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get(param);
-}
-
-const customerFilterParam = getQueryParam("customer");
-
-if (customerFilterParam) {
-    document.getElementById("customerFilter").value = customerFilterParam; // Pre-fill the filter input
-    filterTable(); // Automatically apply the filter
-}
-
-// Initial rendering
-trucks.sort((a, b) => a.customer.localeCompare(b.customer));
-renderTable();
-</script>
+        // Initial rendering
+        renderTable();
+    </script>
 </body>
 </html>
