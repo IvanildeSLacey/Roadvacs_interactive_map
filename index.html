@@ -1,70 +1,78 @@
-<!--Welcome! This is my first project, if you wish to contact me you can do so on: sobierai.ivanilde@gmail.com, thank you for visiting :) -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Roadvacs, internal interactive customers map">
-    <meta name="keywords" content="Roadvacs">
-    <title>Interactive Map</title>
-
-    <!-- Fontawesome -->
-    <script src="https://kit.fontawesome.com/feb4a38862.js" crossorigin="anonymous"></script>
-    <!-- Leaflet CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <!-- CSS path connection -->
-    <link rel="stylesheet" href="assets/css/style.css">
-    <style>
-        #map { 
-            height: 600px; 
-            margin-bottom: 20px; 
-        }
-    </style>
-</head>
-
-<body>
-    <header>
-        <section class="top-nav">
-            <div>
-                <a href="index.html"><img src="assets/images/roadlogo.png" id="logo" alt="Roadvacs Logo"></a>
+<!DOCTYPE html> <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Roadvacs, internal interactive customers map">
+        <meta name="keywords" content="Roadvacs">
+        <title>Interactive Map</title>
+        
+        <!-- Fontawesome -->
+        <script src="https://kit.fontawesome.com/feb4a38862.js" crossorigin="anonymous"></script>
+         
+        <!-- Leaflet CSS --> 
+        <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+        
+        <!-- CSS path connection -->
+        <link rel="stylesheet" href="assets/css/style.css">
+        <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            }
+            th, td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+            th {
+                background-color: #f2f2f2;
+                }
+            input {
+                margin: 10px;
+            }
+            button {
+                margin: 5px;
+                padding: 8px 15px;
+                border: none;
+                background-color: #4CAF50;
+                color: white;
+                cursor: pointer;
+            }
+            button:hover {
+                background-color: #45a049;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <section class="top-nav">
+                <div>
+                    <a href="index.html"><img src="assets/images/roadlogo.png" id="logo" alt="Roadvacs Logo"></a>
+                </div>
+                <input id="menu-toggle" type="checkbox"/>
+                <label class='menu-button-container' for="menu-toggle">
+                    <div class='menu-button'>
+                    </div>
+                </label>
+                <ul class="menu">
+                    <li class="list"><a href="index.html">MAP</a></li>
+                    <li class="list"><a href="customerlist.html" class="actual">CUSTOMER LIST</a></li>
+                    <li class="list"><a href="us.html">CONTACT</a></li>
+                </ul>
+            </section>
+        </header>
+        
+        <footer>
+            <div id="footer-content">
+                <ul class="social-networks">
+                    <li> <a href="tel:+35350467507" target="_blank" rel="noopener" aria-label="Call us on 35350467507"><i class="fa-solid fa-phone"></i></a></li>
+                    <li> <a href="https://www.facebook.com/profile.php?id=100071893128347" target="_blank" rel="noopener" aria-label="Visit our Facebook page (link opens in a new tab)"><i class="fa-brands fa-facebook"></i></a> </li>
+                    <li> <a href="https://www.instagram.com/harrylaceywooddesign/" target="_blank" rel="noopener" aria-label="Check out our Instagram page (link opens in a new tab)"><i class="fa-brands fa-instagram"></i></a> </li>
+                    <li> <a href="https://wa.me/353877699962" target="_blank" rel="noopener" aria-label="Contact us on WhatsApp (opens in a new tab)"><i class="fa-brands fa-whatsapp"></i></a> </li>
+                </ul>
+                <div id="copyright"> <p>©2025 by Roadvacs Irl Ltd</p> </div>
             </div>
-            <input id="menu-toggle" type="checkbox"/>
-            <label class='menu-button-container' for="menu-toggle">
-                <div class='menu-button'></div>
-            </label>
-            <ul class="menu">
-                <li class="list"><a href="index.html" class="actual">MAP</a></li>
-                <li class="list"><a href="customerlist.html">CUSTOMER LIST</a></li>
-                <li class="list"><a href="us.html">CONTACT</a></li>
-            </ul>
-        </section>
-    </header>
-
-    <!-- Integrated Map -->
-    <div id="map"></div>
-
-    <footer>
-        <div id="footer-content">
-            <ul class="social-networks">
-                <li>
-                    <a href="tel:+35350467507" target="_blank" rel="noopener" aria-label="Call us on 35350467507"><i class="fa-solid fa-phone"></i></a>
-                </li>
-                <li>
-                    <a href="https://www.facebook.com/roadvacs/" target="_blank" rel="noopener" aria-label="Visit our Facebook page (link opens in a new tab)"><i class="fa-brands fa-facebook"></i></a>
-                </li>
-                <li>
-                    <a href="https://www.instagram.com/roadvacsltd/" target="_blank" rel="noopener" aria-label="Check out our Instagram page (link opens in a new tab)"><i class="fa-brands fa-instagram"></i></a>
-                </li>
-                <li>
-                    <a href="https://www.linkedin.com/company/roadvacsltd/posts/?feedView=all" target="_blank" rel="noopener" aria-label="Check out our linkedin page (link opens in a new tab)"><i class="fa-brands fa-linkedin"></i></a>
-                </li>
-                <li>
-                    <a href="https://roadvacs.com/" target="_blank" rel="noopener" aria-label="Check out our web page (link opens in a new tab)"><i class="fa-solid fa-globe"></i></a>
-                </li>
-            </ul>
-            <div id="copyright">
-                <p>©2025 by Roadvacs Irl Ltd</p>
-            </div>
-        </div>
-    </footer>
+        </footer>
+</script> </body> </html>
