@@ -118,29 +118,6 @@ h1 {
   transform: rotate(-405deg);
 }
 
-/* Buttons */
-
-/*#mission {
-  margin: 25px 25px 50px;
-  text-align: center;
-  font-size: 1.25rem;
-  font-weight: bold;
-}
-
-.abt-btn {
-    margin: 25px 25px 50px;
-    text-align: center;
-    font-size: 1.25rem;
-    font-weight: bold;
-}*/
-
-/* Styling for the table header */
-th {
-  text-align: left;
-  position: relative;
-  padding-right: 20px;
-}
-
 /* Sort controls */
 .sort-controls {
   font-size: 12px; /* Make the icons smaller for a delicate look */
