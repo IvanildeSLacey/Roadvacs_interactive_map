@@ -115,11 +115,13 @@
         <p>©2025 by Roadvacs Irl Ltd</p>
     </footer>
 
+
+
     <script>
         // Truck data for table
         const trucks = [
-            { customer: "Meath Jetting Services", make: "Muller", model: "Canalmaster F150 E", regPlate: "04-MH-15490", buildNumber: "10401600", deliveryDate: "to be updated" },
-            { customer: "Enva--", make: "Muller", model: "Canalmaster F180 rec type I", regPlate: "to be updated", buildNumber: "10040500", deliveryDate: "to be updated" },
+        { customer: "Meath Jetting Services", make: "Muller", model: "Canalmaster F150 E", regPlate: "04-MH-15490", buildNumber: "10401600", deliveryDate: "to be updated" },
+            { customer: "Enva", make: "Muller", model: "Canalmaster F180 rec type I", regPlate: "to be updated", buildNumber: "10040500", deliveryDate: "to be updated" },
             { customer: "Clearwater", make: "Muller", model: "Canalmaster F200 rec. type II", regPlate: "SF15CJU", buildNumber: "11443500", deliveryDate: "to be updated" },
             { customer: "Clearwater", make: "Muller", model: "Canalmaster F200 rec. type II", regPlate: "SF15CJU", buildNumber: "11443500", deliveryDate: "to be updated" },
             { customer: "McBreen Environmental", make: "Muller", model: "Canalmaster F130 E", regPlate: "151-CN-308", buildNumber: "11442300", deliveryDate: "to be updated" },
@@ -426,11 +428,14 @@
             { customer: "to be updated", make: "VJ Engineering", model: "to be updated", regPlate: "to be updated", buildNumber: "VJE0625", deliveryDate: "to be updated" },
             { customer: "Billy Bowie", make: "VJ Engineering", model: "4200 Gallon Tanker", regPlate: "to be updated", buildNumber: "VJE0606", deliveryDate: "to be updated" },
         ];
-
+    
         const tableBody = document.getElementById("truckTable");
-
+    
         // Render the table
         function renderTable() {
+            // Sort trucks array by customer name (A-Z) before rendering the table
+            trucks.sort((a, b) => a.customer.localeCompare(b.customer));
+            
             tableBody.innerHTML = ""; // Clear table
             trucks.forEach(truck => {
                 const row = document.createElement("tr");
@@ -445,7 +450,7 @@
                 tableBody.appendChild(row);
             });
         }
-
+    
         // Sort function for table
         function sortTable(column, order = "asc") {
             trucks.sort((a, b) => {
@@ -460,31 +465,29 @@
             });
             renderTable();
         }
-
+    
         // Filter function for table
         function filterTable() {
             const customerFilter = document.getElementById("customerFilter").value.toLowerCase();
             const makeFilter = document.getElementById("makeFilter").value.toLowerCase();
             const yearFilter = document.getElementById("yearFilter").value.toLowerCase();
             const buildFilter = document.getElementById("buildFilter").value.toLowerCase();
-
+    
             const rows = document.querySelectorAll("#truckTable tr");
             rows.forEach(row => {
                 const cells = row.children;
                 const customer = cells[0].textContent.toLowerCase();
                 const make = cells[1].textContent.toLowerCase();
                 const build = cells[4].textContent.toLowerCase();
-
+    
                 const matchesCustomer = customer.includes(customerFilter) || customerFilter === "";
                 const matchesMake = make.includes(makeFilter) || makeFilter === "";
                 const matchesBuild = build.includes(buildFilter) || buildFilter === "";
-
+    
                 row.style.display = matchesCustomer && matchesMake && matchesBuild ? "" : "none";
             });
         }
-
+    
         // Initial rendering
         renderTable();
     </script>
-</body>
-</html>
