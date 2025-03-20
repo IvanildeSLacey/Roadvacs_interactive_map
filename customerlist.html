@@ -80,62 +80,42 @@
         <label for="buildFilter">Filter by Build Number:</label>
         <input type="text" id="buildFilter" oninput="filterTable()" placeholder="Enter build number">
 
-        
-        <!-- Sorting dropdown -->
-        <!--<div>
-            <label for="sortOptions">Sort By:</label>
-            <select id="sortOptions" onchange="handleSort()">
-                <option value="customer-asc">Customer (A-Z)</option>
-                <option value="customer-desc">Customer (Z-A)</option>
-                <option value="make-asc">Make (A-Z)</option>
-                <option value="make-desc">Make (Z-A)</option>
-                <option value="model-asc">Model (A-Z)</option>
-                <option value="model-desc">Model (Z-A)</option>
-                <option value="deliveryDate-asc">Delivery Date (Oldest to Newest)</option>
-                <option value="deliveryDate-desc">Delivery Date (Newest to Oldest)</option>
-                <option value="buildNumber-asc">Build Number (Ascending)</option>
-                <option value="buildNumber-desc">Build Number (Descending)</option>
-
-            </select>
-        </div>-->
-
         <!-- Truck table -->
         <table>
             <thead>
                 <tr>
                     <th>
                         Customer
-                        <button onclick="sortTable('customer', 'asc')">▲</button>
-                        <button onclick="sortTable('customer', 'desc')">▼</button>
+                        <span class="sort-controls" onclick="sortTable('customer', 'asc')">▲</span>
+                        <span class="sort-controls" onclick="sortTable('customer', 'desc')">▼</span>
                     </th>
                     <th>
                         Make
-                        <button onclick="sortTable('make', 'asc')">▲</button>
-                        <button onclick="sortTable('make', 'desc')">▼</button>
+                        <span class="sort-controls" onclick="sortTable('make', 'asc')">▲</span>
+                        <span class="sort-controls" onclick="sortTable('make', 'desc')">▼</span>
                     </th>
                     <th>
                         Model
-                        <button onclick="sortTable('model', 'asc')">▲</button>
-                        <button onclick="sortTable('model', 'desc')">▼</button>
+                        <span class="sort-controls" onclick="sortTable('model', 'asc')">▲</span>
+                        <span class="sort-controls" onclick="sortTable('model', 'desc')">▼</span>
                     </th>
                     <th>
                         Registration Plate
-                        <button onclick="sortTable('regPlate', 'asc')">▲</button>
-                        <button onclick="sortTable('regPlate', 'desc')">▼</button>
+                        <span class="sort-controls" onclick="sortTable('regPlate', 'asc')">▲</span>
+                        <span class="sort-controls" onclick="sortTable('regPlate', 'desc')">▼</span>
                     </th>
                     <th>
                         Build Number
-                        <button onclick="sortTable('buildNumber', 'asc')">▲</button>
-                        <button onclick="sortTable('buildNumber', 'desc')">▼</button>
+                        <span class="sort-controls" onclick="sortTable('buildNumber', 'asc')">▲</span>
+                        <span class="sort-controls" onclick="sortTable('buildNumber', 'desc')">▼</span>
                     </th>
                     <th>
                         Delivery Date
-                        <button onclick="sortTable('deliveryDate', 'asc')">▲</button>
-                        <button onclick="sortTable('deliveryDate', 'desc')">▼</button>
+                        <span class="sort-controls" onclick="sortTable('deliveryDate', 'asc')">▲</span>
+                        <span class="sort-controls" onclick="sortTable('deliveryDate', 'desc')">▼</span>
                     </th>
                 </tr>
             </thead>
-            
             <tbody id="truckTable">
                 <!-- Rows of truck data will go here -->
             </tbody>

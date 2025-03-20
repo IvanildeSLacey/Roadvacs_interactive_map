@@ -134,6 +134,27 @@ h1 {
     font-weight: bold;
 }*/
 
+/* Styling for the table header */
+th {
+  text-align: left;
+  position: relative;
+  padding-right: 20px;
+}
+
+/* Sort controls */
+.sort-controls {
+  font-size: 12px; /* Make the icons smaller for a delicate look */
+  margin-left: 5px;
+  cursor: pointer;
+  color: #888; /* Subtle color */
+  transition: color 0.2s ease;
+}
+
+.sort-controls:hover {
+  color: #333; /* Highlight on hover for better user experience */
+}
+
+
 .button {
     border-radius: 12px;
     background-color: #172741;
